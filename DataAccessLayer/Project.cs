@@ -2,6 +2,7 @@ namespace DataAccessLayer
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -28,6 +29,9 @@ namespace DataAccessLayer
         public DateTime? End_Date { get; set; }
 
         public short? Priority { get; set; }
+
+        [DefaultValue("Active")]
+        public string Status { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Task> Tasks { get; set; }

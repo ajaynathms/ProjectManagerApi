@@ -14,7 +14,7 @@ namespace DataAccessLayer
         {
             using (var context = new ProjectManagerContext())
             {
-               return context.Projects.Where(x=>x.Status=="Active").ToList();
+               return context.Projects.Where(x=>x.Status=="Active").Include(x=>x.Users).Include(x=>x.Tasks).ToList();
             }
         }
         public Project AddProject(Project oProject)

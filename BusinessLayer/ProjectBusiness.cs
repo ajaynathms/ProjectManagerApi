@@ -13,6 +13,7 @@ namespace BusinessLayer
         ProjectRepository repoProject = new ProjectRepository();
         public List<ProjectModel> GetAllProject()
         {
+           
             return repoProject.GetAllProject().Select(x => new ProjectModel
             {
                 Project_ID = x.Project_ID,

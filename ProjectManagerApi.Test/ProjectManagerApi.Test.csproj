@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProjectManagerNBench.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControllerTest.cs" />
   </ItemGroup>

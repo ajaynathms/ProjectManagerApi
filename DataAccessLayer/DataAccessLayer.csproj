@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ParentTask.cs" />
+    <Compile Include="ParentTaskRepository.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="ProjectManagerContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

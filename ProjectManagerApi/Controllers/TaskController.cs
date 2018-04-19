@@ -21,6 +21,12 @@ namespace ProjectManagerApi.Controllers
             return Ok(oTaskBusines.GetAllTasks());
         }
 
+        [HttpGet]
+        [Route("api/getAllParentTasks")]
+        public IHttpActionResult GetParentTasks()
+        {
+            return Ok(oTaskBusines.GetAllParentTasks());
+        }
 
 
         [HttpPost]

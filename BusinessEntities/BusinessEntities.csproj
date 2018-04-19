@@ -42,6 +42,7 @@
     <Compile Include="ProjectModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Status.cs" />
+    <Compile Include="ParentTaskModel.cs" />
     <Compile Include="TaskModel.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="ProjectUpdateResult.cs" />

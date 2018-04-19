@@ -10,6 +10,7 @@ namespace BusinessLayer
    public class TaskBusiness
     {
         TaskRepository repoTask = new TaskRepository();
+        ParentTaskRepository parent = new ParentTaskRepository();
         public List<TaskModel> GetAllTasks()
         {
             return repoTask.GetAllTasks().Select(x => new TaskModel
@@ -31,9 +32,29 @@ namespace BusinessLayer
             }).ToList();
         }
 
+        public List<ParentTaskModel> GetAllParentTasks()
+        {
+            return parent.GetAllTasks().Select(x => new ParentTaskModel
+            {
+
+                Parent_ID = x.Parent_ID,
+                Parent_Name = x.Parent_Task
+
+            }).ToList();
+        }
         public TaskUpdateResult UpdateTask(TaskModel oTask)
         {
             Status oStatus = new Status();
+            if(oTask.Parent_ID==null)
+            {
+                
+                ParentTask oParent = new ParentTask()
+                {
+                    Parent_Task = oTask.TaskName
+                };
+                oParent=parent.AddParentTask(oParent);
+                oTask.Parent_ID = oParent.Parent_ID;
+            }
             DataAccessLayer.Task task = new DataAccessLayer.Task()
             {
                 End_Date = oTask.End_Date,

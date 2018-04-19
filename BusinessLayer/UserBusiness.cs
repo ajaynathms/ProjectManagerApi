@@ -7,7 +7,7 @@ using DataAccessLayer;
 using BusinessEntities;
 namespace BusinessLayer
 {
-   public class UserBusiness
+    public class UserBusiness
     {
         UserRepository repoUser = new UserRepository();
         public List<UserModel> GetAllUsers()
@@ -28,9 +28,9 @@ namespace BusinessLayer
             User user = new User()
             {
                 Employee_ID = oUser.Employee_ID,
-                 First_Name=oUser.First_Name,
-                  Last_Name=oUser.Last_Name,
-                   Project_ID=oUser.Project_ID
+                First_Name = oUser.First_Name,
+                Last_Name = oUser.Last_Name,
+                Project_ID = oUser.Project_ID
             };
             if (oUser.User_ID == 0)
             {
@@ -40,14 +40,14 @@ namespace BusinessLayer
             else
             {
                 user.User_ID = oUser.User_ID;
-               user= repoUser.UpdateUser(user);
+                user = repoUser.UpdateUser(user);
                 oStatus = new Status() { Message = "User updated successfully", Result = true };
             }
 
             return new UserUpdateResult()
             {
                 status = oStatus,
-                user=new UserModel()
+                user = new UserModel()
                 {
                     User_ID = user.User_ID,
                     Project_ID = user.Project_ID,

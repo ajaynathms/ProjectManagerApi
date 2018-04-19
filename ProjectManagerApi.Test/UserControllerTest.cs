@@ -22,7 +22,7 @@ namespace ProjectManagerApi.Test
         {
             get
             {
-                string FileLoc = @"TestData\AddUser.json";
+                string FileLoc = @"TestData\User.json";
                 string FilePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase).Replace("file:\\","").Replace("\\bin\\Debug", "");
 
                 var jsonText = File.ReadAllText(Path.Combine(FilePath,FileLoc));
@@ -30,23 +30,19 @@ namespace ProjectManagerApi.Test
                 yield return adduser;
             }
         }
-
+        
         [Test, TestCaseSource("GetTestDataUser")]
         public void TestAddUser(UserModel testUser)
         {
             UserController oController = new UserController();
-            Assert.AreEqual("User added successfully", oController.Post(testUser).status.Message);
+            UserUpdateResult uResult = new UserUpdateResult();
+            uResult = oController.Post(testUser);
+            string message = uResult.status.Message;
+            Assert.AreEqual("User added successfully", message);
+            testUser.User_ID = uResult.user.User_ID;
+            Assert.AreEqual("User updated successfully",oController.Post(testUser).status.Message);
+            Assert.IsTrue(oController.DeleteUser(testUser).Result);
         }
-
-        public static UserModel GetAddUserTestData()
-        {
-            string FileLoc = @"C:\Users\Admin\Documents\PM2\ProjectManagerApi\ProjectManagerApi.Test\TestData\AddUser.json";
-
-            var jsonText = File.ReadAllText(FileLoc);
-            var adduser = JsonConvert.DeserializeObject<UserModel>(jsonText);
-            return adduser;
-        }
-
-        
+         
     }
 }

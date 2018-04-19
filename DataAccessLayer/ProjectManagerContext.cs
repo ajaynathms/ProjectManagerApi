@@ -9,6 +9,8 @@ namespace DataAccessLayer
         public ProjectManagerContext()
             : base("name=ProjectManagerContext")
         {
+            Configuration.LazyLoadingEnabled = false;
+            
         }
 
         public virtual DbSet<ParentTask> ParentTasks { get; set; }

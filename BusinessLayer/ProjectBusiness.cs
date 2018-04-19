@@ -51,7 +51,13 @@ namespace BusinessLayer
                 proj = repoProject.UpdateProject(proj);
                 oStatus = new Status() { Message = "Project updated successfully", Result = true };
             }
-
+            if (oProj.Manager_ID != null)
+            {
+                UserRepository repoUser = new UserRepository();
+                User ouser = repoUser.GetUserById(oProj.Manager_ID.Value);
+                ouser.Project_ID = proj.Project_ID;
+                repoUser.UpdateUser(ouser);
+            }
             return new ProjectUpdateResult()
             {
                 status = oStatus,

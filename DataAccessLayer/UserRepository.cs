@@ -17,6 +17,13 @@ namespace DataAccessLayer
                return context.Users.ToList();
             }
         }
+        public User GetUserById(long userId)
+        {
+            using (var context = new ProjectManagerContext())
+            {
+                return context.Users.Where(x => x.User_ID == userId).FirstOrDefault();
+            }
+        }
         public User AddUser(User oUser)
         {
             using (var context = new ProjectManagerContext())

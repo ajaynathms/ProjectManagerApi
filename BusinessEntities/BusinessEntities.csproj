@@ -45,6 +45,7 @@
     <Compile Include="TaskModel.cs" />
     <Compile Include="UserModel.cs" />
     <Compile Include="ProjectUpdateResult.cs" />
+    <Compile Include="TaskUpdateResult.cs" />
     <Compile Include="UserUpdateResult.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

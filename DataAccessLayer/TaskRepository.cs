@@ -8,34 +8,34 @@ using System.Data.Entity;
 
 namespace DataAccessLayer
 {
-   public class ProjectRepository
+   public class TaskRepository
     {
-        public List<Project> GetAllProject()
+        public List<Task> GetAllTasks()
         {
             using (var context = new ProjectManagerContext())
             {
-               return context.Projects.Where(x=>x.Status=="Active").ToList();
+               return context.Tasks.ToList();
             }
         }
-        public Project AddProject(Project oProject)
+        public Task AddTask(Task oTask)
         {
             using (var context = new ProjectManagerContext())
             {
-                oProject= context.Projects.Add(oProject);
+                oTask= context.Tasks.Add(oTask);
                 context.SaveChanges();
-                return oProject;
+                return oTask;
             }
         }
-        public Project UpdateProject(Project oProject)
+        public Task UpdateTask(Task oTask)
         {
             using (var context = new ProjectManagerContext())
             {
-                context.Projects.Attach(oProject);
-                context.Entry(oProject).State = EntityState.Modified;
+                oTask= context.Tasks.Attach(oTask);
+                context.Entry(oTask).State = EntityState.Modified;
                 context.SaveChanges();
-                return oProject;
+                return oTask;
             }
         }
-       
+        
     }
 }

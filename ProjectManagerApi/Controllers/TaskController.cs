@@ -16,9 +16,9 @@ namespace ProjectManagerApi.Controllers
 
         [HttpGet]
         [Route("api/getAllTasks")]
-        public IHttpActionResult Get()
+        public IEnumerable<TaskModel> Get()
         {
-            return Ok(oTaskBusines.GetAllTasks());
+            return oTaskBusines.GetAllTasks();
         }
 
         [HttpGet]

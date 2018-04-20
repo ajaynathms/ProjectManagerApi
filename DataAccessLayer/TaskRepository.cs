@@ -14,7 +14,7 @@ namespace DataAccessLayer
         {
             using (var context = new ProjectManagerContext())
             {
-               return context.Tasks.ToList();
+               return context.Tasks.Include(x=>x.User).Include(x=>x.Project).ToList();
             }
         }
         public Task AddTask(Task oTask)

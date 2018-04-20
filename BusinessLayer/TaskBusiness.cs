@@ -17,7 +17,7 @@ namespace BusinessLayer
             {
                 End_Date = x.End_Date,
                 Parent_ID = x.Parent_ID,
-                Parent_Name = x.ParentTask.Parent_Task,
+                Parent_Name = x.ParentTask?.Parent_Task,
                 Priority = x.Priority,
                 Project_ID = x.Project_ID,
                 Project_Name = x.Project.Project1,
@@ -26,7 +26,7 @@ namespace BusinessLayer
                 TaskName = x.Task1,
                 Task_ID = x.Task_ID,
                 User_ID = x.User_ID,
-                User_Name = x.User.First_Name + " " + x.User.Last_Name
+                User_Name = x.User?.First_Name + " " + x.User?.Last_Name
 
 
             }).ToList();
@@ -81,22 +81,7 @@ namespace BusinessLayer
             return new TaskUpdateResult()
             {
                 status = oStatus,
-                task=new TaskModel()
-                {
-                    End_Date = task.End_Date,
-                    Parent_ID = task.Parent_ID,
-                    Parent_Name = task.ParentTask.Parent_Task,
-                    Priority = task.Priority,
-                    Project_ID = task.Project_ID,
-                    Project_Name = task.Project.Project1,
-                    Start_Date = task.Start_Date,
-                    Status = task.Status,
-                    TaskName = task.Task1,
-                    Task_ID = task.Task_ID,
-                    User_ID = task.User_ID,
-                    User_Name = task.User.First_Name + " " + task.User.Last_Name
-
-                }
+                task = null
             };
 
         }

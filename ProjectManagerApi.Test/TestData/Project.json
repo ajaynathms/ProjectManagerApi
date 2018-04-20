@@ -1,0 +1,11 @@
+﻿{
+  "Project_ID": 0,
+  "ProjectName": "FSD1",
+  "Start_Date": "2018-1-26",
+  "End_Date": "2018-10-26",
+  "Priority": 1,
+  "Status": "Started",
+  "NumberOfTasks":100,
+  "Manager_ID": null,
+  "Manager_Name": ""
+}

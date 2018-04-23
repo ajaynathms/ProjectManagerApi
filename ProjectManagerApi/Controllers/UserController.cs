@@ -16,9 +16,9 @@ namespace ProjectManagerApi.Controllers
 
         [HttpGet]
         [Route("api/getAllUsers")]
-        public IHttpActionResult Get()
+        public IEnumerable<UserModel> Get()
         {
-          return  Ok(oUserBusines.GetAllUsers());
+          return  oUserBusines.GetAllUsers();
         }
 
 

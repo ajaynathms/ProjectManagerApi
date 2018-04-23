@@ -41,7 +41,9 @@ namespace ProjectManagerApi.Test
             Assert.AreEqual("User added successfully", message);
             testUser.User_ID = uResult.user.User_ID;
             Assert.AreEqual("User updated successfully",oController.Post(testUser).status.Message);
+            Assert.NotNull(oController.Get());
             Assert.IsTrue(oController.DeleteUser(testUser).Result);
+
         }
          
     }

@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessEntities;
 using DataAccessLayer;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BusinessLayer
 {
+    //[ExcludeFromCodeCoverage]
     public class ProjectBusiness
     {
         ProjectRepository repoProject = new ProjectRepository();
@@ -20,8 +22,8 @@ namespace BusinessLayer
                 ProjectName = x.Project1,
                 Priority = x.Priority,
                 End_Date = x.End_Date,
-                Manager_ID = x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.User_ID,
-                Manager_Name = x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.First_Name + " " + x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.Last_Name,
+                //Manager_ID = x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.User_ID,
+                //Manager_Name = x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.First_Name + " " + x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.Last_Name,
                 NumberOfTasks = x.Tasks.Count,
                 Start_Date = x.Start_Date,
                 Status = x.Status
@@ -68,8 +70,6 @@ namespace BusinessLayer
                     ProjectName = proj.Project1,
                     Priority = proj.Priority,
                     End_Date = proj.End_Date,
-                    Manager_ID = proj.Users.FirstOrDefault(y => y.Project_ID == proj.Project_ID)?.User_ID,
-                    Manager_Name = proj.Users.FirstOrDefault(y => y.Project_ID == proj.Project_ID)?.First_Name + " " + proj.Users.FirstOrDefault(y => y.Project_ID == proj.Project_ID)?.Last_Name,
                     NumberOfTasks = proj.Tasks.Count,
                     Start_Date = proj.Start_Date,
                     Status = proj.Status

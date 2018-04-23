@@ -53,8 +53,7 @@ namespace ProjectManagerApi.Test
             string message = pResult.status.Message;
             Assert.AreEqual("Project added successfully", message);
             testProject.Project_ID = pResult.project.Project_ID;
-            Assert.AreEqual("Project updated successfully", oController.Post(testProject).status.Message);
-            
+            Assert.AreEqual("Project updated successfully", oController.Post(testProject).status.Message);           
 
         }
         public UserUpdateResult AddUser()

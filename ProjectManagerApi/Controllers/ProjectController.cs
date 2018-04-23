@@ -13,9 +13,9 @@ namespace ProjectManagerApi.Controllers
         ProjectBusiness oProject = new ProjectBusiness();
         [HttpGet]
         [Route("api/getAllProjects")]
-        public IHttpActionResult Get()
+        public IEnumerable<ProjectModel> Get()
         {
-            return Ok(oProject.GetAllProject());
+            return oProject.GetAllProject();
         }
 
 

@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="NBenchReports\ProjectManagerApi.Test.ProjectManagerNBench+GetAllUsersCounterThroughputBenchMark-636597491541328141.md" />
     <None Include="packages.config" />
     <None Include="run.bat" />
     <None Include="TestData\Project.json" />

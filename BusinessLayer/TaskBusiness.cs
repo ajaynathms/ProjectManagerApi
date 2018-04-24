@@ -55,6 +55,10 @@ namespace BusinessLayer
                 oParent=parent.AddParentTask(oParent);
                 oTask.Parent_ID = oParent.Parent_ID;
             }
+            if(oTask.Parent_ID!=null&& oTask.User_ID ==null)
+            {
+                parent.UpdateParentTask(new ParentTask() { Parent_ID = oTask.Parent_ID.Value, Parent_Task = oTask.TaskName });
+            }
             DataAccessLayer.Task task = new DataAccessLayer.Task()
             {
                 End_Date = oTask.End_Date,

@@ -22,8 +22,8 @@ namespace BusinessLayer
                 ProjectName = x.Project1,
                 Priority = x.Priority,
                 End_Date = x.End_Date,
-                //Manager_ID = x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.User_ID,
-                //Manager_Name = x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.First_Name + " " + x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.Last_Name,
+                Manager_ID = x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.User_ID,
+                Manager_Name = x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.First_Name + " " + x.Users.FirstOrDefault(y => y.Project_ID == x.Project_ID)?.Last_Name,
                 NumberOfTasks = x.Tasks.Count,
                 Start_Date = x.Start_Date,
                 Status = x.Status

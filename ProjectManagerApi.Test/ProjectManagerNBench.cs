@@ -22,7 +22,7 @@ namespace ProjectManagerApi.Test
             addCounter = context.GetCounter(AddCounterName);
             key = 0;
         }
-        [PerfBenchmark(NumberOfIterations = 10, RunMode = RunMode.Throughput, RunTimeMilliseconds = 10000, TestMode = TestMode.Measurement)]
+        [PerfBenchmark(NumberOfIterations = 500, RunMode = RunMode.Throughput, RunTimeMilliseconds = 600000, TestMode = TestMode.Measurement)]
         [CounterMeasurement(AddCounterName)]
         [CounterThroughputAssertion(AddCounterName, MustBe.GreaterThan, AcceptableMinAddThroughput)]
         public void GetAllUsersCounterThroughputBenchMark(BenchmarkContext context)
